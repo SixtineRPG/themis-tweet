@@ -1,0 +1,152 @@
+.x-post {
+  box-sizing: border-box;
+  padding: 16px;
+  color: var(--txt-noir);
+  background: var(--bg-neutre);
+  border: 1px solid var(--bord-neutre);
+  border-radius: 8px;
+  font-family: "inter", sans-serif;
+}
+
+.x-post *,
+.x-post *::before,
+.x-post *::after {
+  box-sizing: inherit;
+}
+
+.x-post__main {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.x-post__avatar {
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.x-post__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.x-post__identity {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px;
+  line-height: 1.4;
+}
+
+.x-post__name {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.x-post__handle,
+.x-post__date {
+  color: var(--txt-noir);
+  font-size: 13px;
+  opacity: 0.5;
+}
+
+.x-post__verified {
+  margin-left: 1px;
+  color: var(--txt-blue-def);
+  font-size: 14px;
+}
+
+.x-post__text {
+  margin: 8px 0 10px;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.x-post__image {
+  display: block;
+  width: 100%;
+  max-height: 320px;
+  margin: 10px 0;
+  border: 1px solid var(--bord-neutre);
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.x-post__reposted {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 10px 42px;
+  color: var(--txt-noir);
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+.x-post__reposted i,
+.x-post__stat i {
+  width: 15px;
+  text-align: center;
+}
+
+.x-post__quoted {
+  margin-top: 12px;
+  padding: 12px;
+  background: var(--bg-second);
+  border: 1px solid var(--bord-neutre-second);
+  border-radius: 12px;
+}
+
+.x-post__quoted .x-post__avatar {
+  flex-basis: 28px;
+  width: 28px;
+  height: 28px;
+}
+
+.x-post__quoted .x-post__name,
+.x-post__quoted .x-post__handle {
+  font-size: 12px;
+}
+
+.x-post__quoted .x-post__text {
+  margin: 6px 0;
+  font-size: 13px;
+}
+
+.x-post__quoted .x-post__image {
+  max-height: 200px;
+}
+
+.x-post__stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 16px;
+  color: var(--txt-noir);
+  font-size: 11px;
+  opacity: 0.5;
+}
+
+.x-post__stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.x-post__stat i {
+  font-size: 14px;
+}
+
+tagTweet {
+  color: var(--txt-blue-def);
+  font-weight: bold;
+}
+
+tagTweet:before {
+  content: "@";
+}
