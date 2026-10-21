@@ -138,7 +138,7 @@ function compactHTML(html) {
 export function updatePost() {
   const html = buildPostHTML(getData());
   preview.innerHTML = html;
-  generatedCode.value = compactHTML(html) + '<link rel="stylesheet" href="URL_DE_TON_TEMPLATE_CSS">';
+  generatedCode.value = compactHTML(html) + '<link rel="stylesheet" href="https://sixtinerpg.github.io/themis-tweet/css/template.css">';
   copyStatus.textContent = "Le code se met à jour automatiquement.";
 }
 
