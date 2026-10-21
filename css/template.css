@@ -1,3 +1,8 @@
+.x-post__content {
+  display: flex;
+  justify-content: center;
+}
+
 .x-post {
   box-sizing: border-box;
   padding: 16px;
@@ -6,7 +11,9 @@
   border: 1px solid var(--bord-neutre);
   border-radius: 8px;
   font-family: "inter", sans-serif;
+  width: 800px;
 }
+
 
 .x-post *,
 .x-post *::before,
