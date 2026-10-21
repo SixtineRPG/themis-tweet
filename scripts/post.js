@@ -33,12 +33,10 @@ const icons = {
   views: "fa-regular fa-eye",
 };
 
-const icon = (name) => icons[name] ? `<i class="${icons[name]}" aria-hidden="true"></i>` : "";
+const icon = (name) => (icons[name] ? `<i class="${icons[name]}" aria-hidden="true"></i>` : "");
 
 function identityHTML(name, handle, date = "", verified = false) {
-  const verifiedIcon = verified
-    ? `<i class="fa-solid fa-circle-check x-post__verified" aria-label="Compte certifié" role="img"></i>`
-    : "";
+  const verifiedIcon = verified ? `<i class="fa-solid fa-circle-check x-post__verified" aria-label="Compte certifié" role="img"></i>` : "";
   return `
     <div class="x-post__identity">
       <span class="x-post__name">${escapeHTML(name || "Nom du compte")}</span>
@@ -95,11 +93,9 @@ function getData() {
 }
 
 function buildPostHTML(data) {
-  const repostLabel = data.format === "retweet"
-    ? `<div class="x-post__reposted">${icon("repost")}<span>${escapeHTML(data.authorName || "Ce compte")} a reposté</span></div>`
-    : "";
+  const repostLabel = data.format === "retweet" ? `<div class="x-post__reposted">${icon("repost")}<span>${escapeHTML(data.authorName || "Ce compte")} a reposté</span></div>` : "";
 
-  return `<article class="x-post" data-format="${data.format}">
+  return `<div class="x-post__content"><article class="x-post" data-format="${data.format}">
     ${repostLabel}
     <div class="x-post__main">
       ${avatarHTML(data.authorAvatar, data.authorName)}
@@ -116,7 +112,8 @@ function buildPostHTML(data) {
         </div>
       </div>
     </div>
-  </article>`;
+  </article>
+  </div>`;
 }
 
 function compactHTML(html) {
