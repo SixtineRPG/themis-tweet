@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Générateur de posts X</title>
+    <link rel="stylesheet" href="css/root.css" />
+    <link rel="stylesheet" href="css/template.css" />
+    <link rel="stylesheet" href="css/form.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+    <script type="module" src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="app">
+      <header class="app__header">
+        <div class="header-top">
+          <p class="eyebrow">OUTIL DE CRÉATION</p>
+          <button type="button" id="theme-toggle" class="theme-toggle">
+            <i class="fa-solid fa-moon" aria-hidden="true"></i>
+            Mode sombre
+          </button>
+        </div>
+        <h1>Générateur de posts X</h1>
+        <p class="muted">Crée, prévisualise et copie ton post.</p>
+      </header>
+
+      <div class="workspace">
+        <section class="panel editor">
+          <h2>Personnalisation</h2>
+
+          <fieldset class="format-picker">
+            <legend>Format du post</legend>
+            <div class="format-picker__buttons">
+              <button class="format-button is-active" type="button" data-format="tweet" aria-pressed="true">Tweet classique</button>
+              <button class="format-button" type="button" data-format="retweet" aria-pressed="false">Retweet</button>
+            </div>
+          </fieldset>
+
+          <form id="post-form">
+            <h3>Compte qui publie</h3>
+            <div class="form-grid__wide">
+              <div class="account-select" data-account-select="author">
+                <input type="hidden" name="authorName" value="Lise Martin" />
+                <input type="hidden" name="authorHandle" value="@foxyandfurious" />
+                <input type="hidden" name="authorAvatar" value="https://2img.net/u/4411/66/84/37/avatars/5-34.jpg" />
+
+                <button class="account-select__trigger" type="button" aria-expanded="false">
+                  <span class="account-select__current">
+                    <img class="account-select__avatar" src="https://2img.net/u/4411/66/84/37/avatars/5-34.jpg" alt="" />
+                    <span class="account-select__identity">
+                      <strong>Lise Martin</strong>
+                      <small>@foxyandfurious</small>
+                    </span>
+                  </span>
+                  <span aria-hidden="true">▾</span>
+                </button>
+
+                <div class="account-select__dropdown" hidden>
+                  <input class="account-select__search" type="search" placeholder="Rechercher un compte..." aria-label="Rechercher un compte" />
+                  <div class="account-select__options" role="listbox"></div>
+                </div>
+              </div>
+            </div>
+
+            <h3>Contenu du post</h3>
+            <label>
+              <div data-editor-text="text" data-rows="4">La saison 6 commence enfin !</div>
+            </label>
+
+            <h3>Statistiques</h3>
+            <div class="form-grid">
+              <label
+                >Réponses
+                <input name="replies" value="12" />
+              </label>
+              <label
+                >Reposts
+                <input name="reposts" value="24" />
+              </label>
+              <label
+                >J'aime
+                <input name="likes" value="128" />
+              </label>
+              <label
+                >Vues
+                <input name="views" value="1,2 k" />
+              </label>
+            </div>
+
+            <div id="retweet-fields" class="retweet-fields" hidden>
+              <hr />
+              <h3>Post original</h3>
+
+              <div class="form-grid__wide">
+                <div class="account-select" data-account-select="original">
+                  <input type="hidden" name="originalName" value="Compte officiel" />
+                  <input type="hidden" name="originalHandle" value="@compteofficiel" />
+                  <input type="hidden" name="originalAvatar" value="" />
+
+                  <button class="account-select__trigger" type="button" aria-expanded="false">
+                    <span class="account-select__current">
+                      <span class="account-select__avatar account-select__avatar--placeholder">?</span>
+                      <span class="account-select__identity">
+                        <strong>Compte officiel</strong>
+                        <small>@compteofficiel</small>
+                      </span>
+                    </span>
+                    <span aria-hidden="true">▾</span>
+                  </button>
+
+                  <div class="account-select__dropdown" hidden>
+                    <input class="account-select__search" type="search" placeholder="Rechercher un compte..." aria-label="Rechercher un compte" />
+                    <div class="account-select__options" role="listbox"></div>
+                  </div>
+                </div>
+
+                <label class="form-grid__wide">
+                  <div data-editor-text="originalText" data-rows="3">Découvrez la nouvelle saison !</div>
+                </label>
+              </div>
+            </div>
+          </form>
+        </section>
+
+        <section class="preview-column">
+          <div class="panel">
+            <div class="section-heading">
+              <h2>Prévisualisation</h2>
+              <span class="live-indicator">● En direct</span>
+            </div>
+            <div id="preview" class="post-preview"></div>
+          </div>
+
+          <section class="panel">
+            <div class="section-heading">
+              <h2>Code HTML généré</h2>
+              <button id="copy-button" class="button button--primary" type="button">Copier le code</button>
+            </div>
+            <textarea id="generated-code" class="code-output" readonly spellcheck="false" aria-label="Code HTML généré"></textarea>
+            <p id="copy-status" class="muted" role="status">Le code se met à jour automatiquement.</p>
+          </section>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
